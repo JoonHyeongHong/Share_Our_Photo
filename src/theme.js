@@ -3,6 +3,7 @@ export const lightTheme = {
   textColor: '#222',
   accentColor: '#12cbef',
   fill: '#000000',
+  borderColor: 'skyblue',
 };
 
 export const darkTheme = {
@@ -10,6 +11,7 @@ export const darkTheme = {
   textColor: '#fff',
   accentColor: '#ffe246',
   fill: '#FFFFFF',
+  borderColor: '#ffffff',
 };
 
 export const theme = {

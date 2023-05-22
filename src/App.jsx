@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
 import GlobalStyle from './GlobalStyles';
 import router from './router';
@@ -14,10 +14,18 @@ function App() {
   return (
     <ThemeProvider theme={isDarkMode ? theme.darkTheme : theme.lightTheme}>
       <GlobalStyle />
-      <Header isDarkMode={isDarkMode} changeMode={changeModeHandler} />
-      <RouterProvider router={router} />
+      <Container>
+        <Header isDarkMode={isDarkMode} changeMode={changeModeHandler} />
+        <RouterProvider router={router} />
+      </Container>
     </ThemeProvider>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
+  transition: all 0.25s ease;
+`;

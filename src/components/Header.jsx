@@ -32,13 +32,11 @@ const Header = ({ isDarkMode, changeMode }) => {
 export default Header;
 
 const Container = styled.div`
-  margin: 0px;
+  margin: 0 auto;
   padding: 0px;
-  background-color: ${(props) => props.theme.bgColor};
-  transition: all 0.25s ease;
   width: 100vw;
+  max-width: 1080px;
   height: 80px;
-  color: ${(props) => props.theme.textColor};
   text-align: center;
   display: flex;
   justify-content: space-between;

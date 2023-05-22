@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as MySvg } from '../assets/icons/day.svg';
+import { ReactComponent as MySvg } from '../../../assets/icons/night.svg';
 
-const DayIcon = (props) => {
-  return <DaySvg {...props} />;
+const NightIcon = (props) => {
+  return <NightSvg {...props} />;
 };
 
-export default DayIcon;
+export default NightIcon;
 
-const DaySvg = styled(MySvg)`
+const NightSvg = styled(MySvg)`
   fill: ${(props) => props.theme.fill};
-
   width: ${(props) => props.size + 'px'};
   height: ${(props) => props.size + 'px'};
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as MySvg } from '../assets/icons/menu.svg';
+import { ReactComponent as MySvg } from '../../../assets/icons/menu.svg';
 
 const MenuIcon = (props) => {
   return <MenuSvg {...props} />;

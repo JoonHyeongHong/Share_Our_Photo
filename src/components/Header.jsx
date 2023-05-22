@@ -1,11 +1,10 @@
 import { Switch } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
-import NightIcon from './NightIcon';
-import DayIcon from './DayIcon';
+import { MenuIcon, DayIcon, NightIcon } from './atoms/Icons';
 import Logo from './Logo';
 import Button from './Button';
-import MenuIcon from './MenuIcon';
+
 const Header = ({ isDarkMode, changeMode }) => {
   const size = 20;
   return (

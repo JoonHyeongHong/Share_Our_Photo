@@ -1,15 +1,20 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import { Counter } from './counter';
-import MainPage from './pages/MainPage';
+import { MainPage, LoginPage, SignUpPage } from './pages';
+
 const router = createBrowserRouter([
   {
     path: '/',
     element: <MainPage />,
   },
   {
-    path: 'counter',
-    element: <Counter />,
+    path: 'login',
+    element: <LoginPage />,
+  },
+  {
+    path: 'signUp',
+    element: <SignUpPage />,
   },
 ]);
+
 export default router;

@@ -17,7 +17,8 @@ export default Header;
 const Container = styled.div`
   background-color: ${(props) => props.theme.bgColor};
   transition: all 0.25s ease;
-  min-height: 100vh;
+  min-height: 10vh;
+  background-color: skyblue;
   text-align: center;
   padding-top: 10rem;
 `;

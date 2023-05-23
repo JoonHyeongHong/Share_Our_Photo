@@ -1,7 +1,8 @@
 import React from 'react';
+import { PageDiv } from './SignUpPage';
 
 const MainPage = () => {
-  return <div>Main</div>;
+  return <PageDiv>Main</PageDiv>;
 };
 
 export default MainPage;

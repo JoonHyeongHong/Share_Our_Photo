@@ -12,7 +12,7 @@ const SignUpPage = () => {
 
 export default SignUpPage;
 
-const PageDiv = styled.div`
+export const PageDiv = styled.div`
   width: 100%;
   height: 90vh;
   display: flex;

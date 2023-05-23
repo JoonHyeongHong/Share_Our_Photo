@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useFormik } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
@@ -33,8 +34,14 @@ const SignUpForm = () => {
       passwordCheck: '',
     },
     validate,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       alert(JSON.stringify(values, null, 2));
+
+      const response = await axios.post('http://localhost:3001/account', {
+        email: values.email,
+        password: values.password,
+      });
+      alert(response);
     },
   });
 

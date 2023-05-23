@@ -25,6 +25,7 @@ const Header = () => {
       <MenuDiv>
         <MenuIcon size={size} />
       </MenuDiv>
+      <div />
       <Logo onClick={returnMainPage}>Share Our Photo</Logo>
       <RightSection>
         <ThemeSwitchDiv size={size}>

@@ -1,26 +1,34 @@
 import { Switch } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { MenuIcon, DayIcon, NightIcon } from './atoms/Icons';
 import Logo from './Logo';
 import Button from './Button';
+import Form from './Form';
+import { Link, useNavigate } from 'react-router-dom';
 
 const size = 20;
 
 const Header = ({ isDarkMode, changeMode }) => {
-  const [isLoginFormVisible, setIsLoginFormVisible] = useState(false);
+  // const [isLoginFormVisible, setIsLoginFormVisible] = useState(false);
 
-  const viewLoginFormHandler = (event) => {
-    event.preventDefault();
-    setIsLoginFormVisible(true);
+  // const viewLoginFormHandler = (event) => {
+  //   event.preventDefault();
+  //   setIsLoginFormVisible(true);
+  // }
+  const navigate = useNavigate();
+  const returnMainPage = () => {
+    navigate('/');
   };
+
   return (
     <Container>
+      <Form />
       <MenuDiv>
         <MenuIcon size={size} />
       </MenuDiv>
       <div></div>
-      <Logo>Share Our Photo</Logo>
+      <Logo onClick={returnMainPage}>Share Our Photo</Logo>
       <RightSection>
         <ThemeSwitchDiv size={size}>
           <DayIcon size={size} />
@@ -28,8 +36,10 @@ const Header = ({ isDarkMode, changeMode }) => {
           <NightIcon size={size} />
         </ThemeSwitchDiv>
         <LoginDiv>
-          <Button onClick={viewLoginFormHandler}>로그인</Button>
-          <Button>회원가입</Button>
+          <Button>로그인</Button>
+          <Link to="/signUp">
+            <Button>회원가입</Button>
+          </Link>
         </LoginDiv>
       </RightSection>
     </Container>

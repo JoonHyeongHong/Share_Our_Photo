@@ -18,10 +18,7 @@ const Form = (props) => {
         }
         return errors;
       }}
-    >
-      <input type="text" />
-      <input type="password" />
-    </StyledForm>
+    ></StyledForm>
   );
 };
 

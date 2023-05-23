@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RouterProvider } from 'react-router-dom';
+import { Outlet, RouterProvider } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
 import GlobalStyle from './GlobalStyles';
@@ -15,8 +15,10 @@ function App() {
     <ThemeProvider theme={isDarkMode ? theme.darkTheme : theme.lightTheme}>
       <GlobalStyle />
       <Container>
-        <Header isDarkMode={isDarkMode} changeMode={changeModeHandler} />
-        <RouterProvider router={router} />
+        <RouterProvider router={router}>
+          <Header isDarkMode={isDarkMode} changeMode={changeModeHandler} />
+          <Outlet />
+        </RouterProvider>
       </Container>
     </ThemeProvider>
   );

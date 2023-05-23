@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Outlet, RouterProvider } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
@@ -7,16 +8,13 @@ import router from './router';
 import theme from './theme';
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const changeModeHandler = () => {
-    setIsDarkMode((current) => !current);
-  };
+  const isDarkMode = useSelector((state) => state.theme.value);
   return (
     <ThemeProvider theme={isDarkMode ? theme.darkTheme : theme.lightTheme}>
       <GlobalStyle />
       <Container>
         <RouterProvider router={router}>
-          <Header isDarkMode={isDarkMode} changeMode={changeModeHandler} />
+          <Header />
           <Outlet />
         </RouterProvider>
       </Container>

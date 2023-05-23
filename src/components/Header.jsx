@@ -6,16 +6,14 @@ import Logo from './Logo';
 import Button from './Button';
 import Form from './Form';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeTheme } from '../features/theme/themeSlice';
 
 const size = 20;
 
-const Header = ({ isDarkMode, changeMode }) => {
-  // const [isLoginFormVisible, setIsLoginFormVisible] = useState(false);
-
-  // const viewLoginFormHandler = (event) => {
-  //   event.preventDefault();
-  //   setIsLoginFormVisible(true);
-  // }
+const Header = () => {
+  const isDarkMode = useSelector((state) => state.theme.value);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const returnMainPage = () => {
     navigate('/');
@@ -27,12 +25,15 @@ const Header = ({ isDarkMode, changeMode }) => {
       <MenuDiv>
         <MenuIcon size={size} />
       </MenuDiv>
-      <div></div>
       <Logo onClick={returnMainPage}>Share Our Photo</Logo>
       <RightSection>
         <ThemeSwitchDiv size={size}>
           <DayIcon size={size} />
-          <Switch value={isDarkMode} onChange={changeMode} color="default" />
+          <Switch
+            value={isDarkMode}
+            onChange={() => dispatch(changeTheme())}
+            color="default"
+          />
           <NightIcon size={size} />
         </ThemeSwitchDiv>
         <LoginDiv>

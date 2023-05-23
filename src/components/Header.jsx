@@ -1,12 +1,19 @@
 import { Switch } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { MenuIcon, DayIcon, NightIcon } from './atoms/Icons';
 import Logo from './Logo';
 import Button from './Button';
 
+const size = 20;
+
 const Header = ({ isDarkMode, changeMode }) => {
-  const size = 20;
+  const [isLoginFormVisible, setIsLoginFormVisible] = useState(false);
+
+  const viewLoginFormHandler = (event) => {
+    event.preventDefault();
+    setIsLoginFormVisible(true);
+  };
   return (
     <Container>
       <MenuDiv>
@@ -21,7 +28,7 @@ const Header = ({ isDarkMode, changeMode }) => {
           <NightIcon size={size} />
         </ThemeSwitchDiv>
         <LoginDiv>
-          <Button>로그인</Button>
+          <Button onClick={viewLoginFormHandler}>로그인</Button>
           <Button>회원가입</Button>
         </LoginDiv>
       </RightSection>
@@ -63,8 +70,10 @@ const ThemeSwitchDiv = styled.div`
 `;
 
 const LoginDiv = styled.div`
-  width: 50%;
+  width: 60%;
   height: 100%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const RightSection = styled.div`

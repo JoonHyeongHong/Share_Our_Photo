@@ -4,9 +4,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-onst uri =
+const uri =
   "mongodb+srv://jshwa0429:asrai%237931@cluster0.9njhpor.mongodb.net/test";
 
 async function connect() {
@@ -31,29 +31,15 @@ const userSchema = new Schema({
 
 const User = mongoose.model("User", userSchema);
 
-const user = new User({
-  username: "jack",
-  password: "12345",
-});
-
-user
-  .save()
-  .then(() => {
-    console.log("New user has been saved to the database successfully");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-app.listen(3000, () => {
-  console.log("Server Listening on port 3000");
+app.listen(8000, () => {
+  console.log("Server Listening on port 8000");
 });
 
 app.get("/", (req, res) => {
   res.send("Welcome!");
 });
 
-app.post("/", (req, res) => {
+app.post("/api/account", (req, res) => {
   const { username, password } = req.body;
   const user = new User({ username, password });
   user

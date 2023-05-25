@@ -37,7 +37,7 @@ const SignUpForm = () => {
     onSubmit: async (values) => {
       alert(JSON.stringify(values, null, 2));
 
-      const response = await axios.post('http://localhost:3001/account', {
+      const response = await axios.post('http://localhost:8000/account', {
         email: values.email,
         password: values.password,
       });

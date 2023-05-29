@@ -37,11 +37,16 @@ const SignUpForm = () => {
     onSubmit: async (values) => {
       alert(JSON.stringify(values, null, 2));
 
-      const response = await axios.post('http://localhost:8000/account', {
-        email: values.email,
-        password: values.password,
-      });
-      alert(response);
+      try {
+        const url = 'http://localhost:8000/api/signup';
+        const response = await axios.post(url, {
+          email: values.email,
+          password: values.password,
+        });
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 

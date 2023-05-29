@@ -39,7 +39,7 @@ const Header = () => {
         </ThemeSwitchDiv>
         <LoginDiv>
           <Button>로그인</Button>
-          <Link to="/signUp">
+          <Link to="/signup">
             <Button>회원가입</Button>
           </Link>
         </LoginDiv>

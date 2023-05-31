@@ -1,18 +1,16 @@
 import { Switch } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
-import { DayIcon, NightIcon } from './atoms/Icons';
+import { MenuIcon, DayIcon, NightIcon } from './atoms/Icons';
 import Logo from './Logo';
 import { Button } from './atoms';
-import Form from './Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from '../features/theme/themeSlice';
-import Drawer from './Drawer';
 
-const Header = () => {
+const Header = (props) => {
   const size = 20;
-  const [isMenuVisible, setIsMenuVisible] = React.useState(false);
+
   const isDarkMode = useSelector((state) => state.theme.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,15 +18,13 @@ const Header = () => {
     navigate('/');
   };
 
-  const changeVisibleMenu = () => {
-    setIsMenuVisible((current) => !current);
-  };
-
   return (
     <HeaderContainer>
-      <Form />
-      <Drawer onClick={changeVisibleMenu} visible={isMenuVisible} />
-      <div />
+      <LeftSection onClick={props.onMenuClick}>
+        <MenuDiv>
+          <MenuIcon size={20} />
+        </MenuDiv>
+      </LeftSection>
       <Logo onClick={returnMainPage}>Share Our Photo</Logo>
       <RightSection>
         <ThemeSwitchDiv size={size}>
@@ -54,17 +50,21 @@ const Header = () => {
 export default Header;
 
 const HeaderContainer = styled.div`
-  margin: 0 auto;
   padding: 0px;
-  position: absolute;
   z-index: 999;
   width: 100vw;
   max-width: 1080px;
+  margin: 0 auto;
   height: 80px;
   text-align: center;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid ${(props) => props.theme.textColor};
   div {
     color: ${(props) => props.theme.textColor};
   }
@@ -93,4 +93,15 @@ const RightSection = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+const LeftSection = styled.div`
+  width: 33%;
+  margin-left: 0;
+  display: flex;
+`;
+
+const MenuDiv = styled.div`
+  margin-right: 0;
+  margin-left: 20%;
 `;

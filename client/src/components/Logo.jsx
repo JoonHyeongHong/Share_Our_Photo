@@ -11,4 +11,7 @@ const Logo = (props) => {
 
 export default Logo;
 
-const LogoDiv = styled.div``;
+const LogoDiv = styled.div`
+  width: 33%;
+  margin: 0 auto;
+`;

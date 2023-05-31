@@ -1,6 +1,13 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import { LoginPage, SignUpPage, Root, MainPage } from './pages';
+import {
+  SignUpPage,
+  Root,
+  MainPage,
+  MyPage,
+  GroupPage,
+  EditPage,
+} from './pages';
 
 const router = createBrowserRouter([
   {
@@ -19,11 +26,19 @@ const router = createBrowserRouter([
         path: 'gallery',
         element: <div>갤러리</div>,
       },
+      {
+        path: 'group',
+        element: <GroupPage />,
+      },
+      {
+        path: 'mypage',
+        element: <MyPage />,
+      },
+      {
+        path: 'edit',
+        element: <EditPage />,
+      },
     ],
-  },
-  {
-    path: 'login',
-    element: <LoginPage />,
   },
 ]);
 

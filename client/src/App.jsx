@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Outlet, RouterProvider } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
-import Header from './components/Header';
 import GlobalStyle from './GlobalStyles';
 import router from './router';
 import theme from './theme';
@@ -13,10 +12,7 @@ function App() {
     <ThemeProvider theme={isDarkMode ? theme.darkTheme : theme.lightTheme}>
       <GlobalStyle />
       <Container>
-        <RouterProvider router={router}>
-          <Header />
-          <Outlet />
-        </RouterProvider>
+        <RouterProvider router={router} />
       </Container>
     </ThemeProvider>
   );
@@ -28,4 +24,5 @@ const Container = styled.div`
   background-color: ${(props) => props.theme.bgColor};
   color: ${(props) => props.theme.textColor};
   transition: all 0.25s ease;
+  position: relative;
 `;

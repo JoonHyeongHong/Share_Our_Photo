@@ -15,6 +15,10 @@ const router = createBrowserRouter([
         path: 'signUp',
         element: <SignUpPage />,
       },
+      {
+        path: 'gallery',
+        element: <div>갤러리</div>,
+      },
     ],
   },
   {

@@ -4,6 +4,7 @@ export const lightTheme = {
   accentColor: '#12cbef',
   fill: '#000000',
   borderColor: 'skyblue',
+  menuColor: '#87ceeb',
 };
 
 export const darkTheme = {
@@ -12,6 +13,7 @@ export const darkTheme = {
   accentColor: '#ffe246',
   fill: '#FFFFFF',
   borderColor: '#ffffff',
+  menuColor: 'gray',
 };
 
 export const theme = {

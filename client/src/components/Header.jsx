@@ -1,17 +1,18 @@
 import { Switch } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
-import { MenuIcon, DayIcon, NightIcon } from './atoms/Icons';
+import { DayIcon, NightIcon } from './atoms/Icons';
 import Logo from './Logo';
-import Button from './Button';
+import { Button } from './atoms';
 import Form from './Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from '../features/theme/themeSlice';
-
-const size = 20;
+import Drawer from './Drawer';
 
 const Header = () => {
+  const size = 20;
+  const [isMenuVisible, setIsMenuVisible] = React.useState(false);
   const isDarkMode = useSelector((state) => state.theme.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,12 +20,14 @@ const Header = () => {
     navigate('/');
   };
 
+  const changeVisibleMenu = () => {
+    setIsMenuVisible((current) => !current);
+  };
+
   return (
-    <Container>
+    <HeaderContainer>
       <Form />
-      <MenuDiv>
-        <MenuIcon size={size} />
-      </MenuDiv>
+      <Drawer onClick={changeVisibleMenu} visible={isMenuVisible} />
       <div />
       <Logo onClick={returnMainPage}>Share Our Photo</Logo>
       <RightSection>
@@ -44,18 +47,20 @@ const Header = () => {
           </Link>
         </LoginDiv>
       </RightSection>
-    </Container>
+    </HeaderContainer>
   );
 };
 
 export default Header;
 
-const Container = styled.div`
+const HeaderContainer = styled.div`
   margin: 0 auto;
   padding: 0px;
+  position: absolute;
   width: 100vw;
   max-width: 1080px;
   height: 80px;
+  z-index: 999;
   text-align: center;
   display: flex;
   justify-content: space-between;
@@ -63,12 +68,6 @@ const Container = styled.div`
   div {
     color: ${(props) => props.theme.textColor};
   }
-`;
-
-const MenuDiv = styled.div`
-  width: 10%;
-  margin-left: 0;
-  text-align: center;
 `;
 
 const ThemeSwitchDiv = styled.div`

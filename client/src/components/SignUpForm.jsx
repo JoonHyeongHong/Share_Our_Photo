@@ -2,8 +2,7 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
-import Input from './atoms/Input';
-import Button from './Button';
+import { Input, Button } from './atoms';
 
 const SignUpForm = () => {
   const validate = (values) => {

@@ -33,6 +33,7 @@ const DrawerDiv = styled.div`
   margin: 0px;
   top: 0px;
   left: 0px;
+  z-index: 1;
   position: absolute;
   background-color: ${(props) => props.theme.menuColor};
   -webkit-transition: width 2s ease-in-out;

@@ -29,6 +29,19 @@ const MainPage = () => {
       hashTag: ['#하하'],
     },
   ];
+
+  React.useEffect(() => {
+    let ignore = false;
+    let count = 0;
+    if (!ignore) {
+      console.log(ignore, count);
+    }
+    return () => {
+      ignore = true;
+      count++;
+    };
+  });
+
   return (
     <PageDiv>
       {datas.map((data, idx) => (

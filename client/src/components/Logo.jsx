@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Logo = (props) => {
   return (
     <LogoDiv {...props}>
-      <h1>{props.children}</h1>
+      <h2>{props.children}</h2>
     </LogoDiv>
   );
 };
@@ -12,6 +12,7 @@ const Logo = (props) => {
 export default Logo;
 
 const LogoDiv = styled.div`
-  width: 33%;
-  margin: 0 auto;
+  width: 20%;
+  margin-right: auto;
+  font-size: 14px;
 `;
